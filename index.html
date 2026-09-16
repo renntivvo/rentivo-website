@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENTIVO - Mais utilização. Mais rentabilidade.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #0066cc;
+            --accent: #00a8e8;
+            --dark: #0a1628;
+            --light: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "R";
+            background: var(--accent);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-primary:hover {
+            background: #0095cc;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent);
+            padding: 14px 32px;
+            border: 2px solid var(--accent);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 16px;
+        }
+
+        .cta-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        section > .container > p:first-of-type {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            display: inline-block;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 24px;
+            flex-shrink: 0;
+            width: 24px;
+        }
+
+        .feature-item p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Audience Section */
+        .audience {
+            background: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .audience-card {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4ff 100%);
+            padding: 40px 32px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .audience-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .audience-card ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .audience-card li {
+            padding: 8px 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audience-card li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #aaa;
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .tagline {
+                font-size: 18px;
+            }
+
+            .cta-secondary {
+                display: block;
+                margin: 16px 0 0 0;
+                margin-top: 16px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .steps, .benefits-grid, .features-grid, .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">RENTIVO</div>
+                <ul class="nav-links">
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#publico">Para Quem</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Mais utilização.<br>Mais rentabilidade.</h1>
+            <p class="tagline">Plataforma de locação inteligente para equipamentos e recursos</p>
+            <p>Conecte quem tem equipamentos com quem precisa. Maximize a utilização dos seus ativos e aumente seus ganhos de forma simples e segura.</p>
+            <div>
+                <button class="cta-primary" onclick="scrollToSection('contato')">Começar Agora</button>
+                <button class="cta-secondary" onclick="scrollToSection('como-funciona')">Ver Como Funciona</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <h2>Benefícios da RENTIVO</h2>
+            <p>Tanto para quem quer alugar quanto para quem quer oferecer equipamentos, a RENTIVO oferece a solução perfeita.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Maximizar Lucros</h3>
+                    <p>Transforme seus equipamentos ociosos em renda contínua. Quanto mais utilização, mais rentabilidade.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔐</div>
+                    <h3>Segurança Garantida</h3>
+                    <p>Transações verificadas, seguros inclusos e histórico de locatários confiáveis para proteção total.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏱️</div>
+                    <h3>Economize Tempo</h3>
+                    <p>Encontre equipamentos ou clientes em minutos. Processo de locação simples e rápido.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Custo Reduzido</h3>
+                    <p>Alugue apenas o que precisa, quando precisar. Sem despesas com aquisição e manutenção.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Acesso Fácil</h3>
+                    <p>Plataforma disponível 24/7 na web e mobile. Gerenciar locações nunca foi tão simples.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌐</div>
+                    <h3>Conexão em Rede</h3>
+                    <p>Acesso a uma comunidade crescente de proprietários e locatários na sua região.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <p>Três passos simples para começar a lucrar ou economizar com equipamentos.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Cadastre-se</h3>
+                    <p>Crie sua conta em minutos com informações básicas e verifique seu perfil para máxima confiança.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Publique ou Procure</h3>
+                    <p>Anuncie seus equipamentos ou navegue catálogos com filtros avançados para encontrar exatamente o que precisa.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Feche a Locação</h3>
+                    <p>Acerte os detalhes, faça o pagamento de forma segura e comece a usar ou alugar imediatamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Recursos Principais</h2>
+            <p>Tudo que você precisa para gerenciar locações com confiança.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <p><strong>Catálogo Inteligente</strong><br>Busca e filtros avançados</p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>Pagamentos Seguros</strong><br>Múltiplas formas de pagamento</p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>Avaliações</strong><br>Sistema de ratings confiável</p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>Histórico Completo</strong><br>Controle de todas as transações</p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>Suporte 24/7</strong><br>Ajuda sempre disponível</p>
+                </div>
+                <div class="feature-item">
+                    <p><strong>Notificações em Tempo Real</strong><br>Acompanhe suas locações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="audience" id="publico">
+        <div class="container">
+            <h2>Para Quem é a RENTIVO?</h2>
+            <p>Soluções prontas para diferentes necessidades e perfis de usuários.</p>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>👤 Pessoas Físicas</h3>
+                    <ul>
+                        <li>Alugar equipamentos com segurança</li>
+                        <li>Monetizar seus bens ociosos</li>
+                        <li>Economizar em grandes compras</li>
+                        <li>Acesso a produtos de qualidade</li>
+                    </ul>
+                </div>
+                <div class="audience-card">
+                    <h3>🏢 Pequenas Empresas</h3>
+                    <ul>
+                        <li>Reduzir despesas operacionais</li>
+                        <li>Flexibilidade de recursos</li>
+                        <li>Aumentar capacidade produtiva</li>
+                        <li>Gestão centralizada de locações</li>
+                    </ul>
+                </div>
+                <div class="audience-card">
+                    <h3>🚚 Fornecedores</h3>
+                    <ul>
+                        <li>Expandir mercado de clientes</li>
+                        <li>Aumentar utilização de frota</li>
+                        <li>Automatizar processo de locação</li>
+                        <li>Relatórios e análises detalhadas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2>Pronto para Transformar Seus Equipamentos?</h2>
+            <p>Junte-se a milhares de usuários que já estão maximizando a rentabilidade com a RENTIVO.</p>
+            <button class="cta-primary" onclick="alert('Em breve! Você será redirecionado para o formulário de inscrição.')">Começar Gratuitamente</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>RENTIVO</strong> - Mais utilização. Mais rentabilidade.</p>
+            <div class="footer-links">
+                <a href="#">Sobre</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+            <p>&copy; 2024 RENTIVO. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
