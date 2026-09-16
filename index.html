@@ -69,16 +69,29 @@
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 6px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 20px;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-hero {
+            width: 200px;
+            height: auto;
+            margin: 30px auto 0;
+            display: block;
+        }
+
+        .logo-hero img {
+            width: 100%;
+            height: auto;
         }
 
         .nav-links {
@@ -916,7 +929,9 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <div class="logo-icon">R</div>
+                    <div class="logo-icon">
+                        <img src="./Mais.png" alt="RENTIVO Logo">
+                    </div>
                     <span>RENTIVO</span>
                 </div>
                 <ul class="nav-links">
@@ -936,6 +951,8 @@
         <div class="hero-grid"></div>
         <div class="container" style="position: relative; z-index: 2;">
             <div class="hero-content">
+                <img class="logo-hero" src="./Mais.png" alt="RENTIVO Logo">
+                
                 <div class="hero-subtitle">Para Locadoras que Querem Crescer</div>
                 
                 <h1>Mais Utilização.<br>Mais Rentabilidade.</h1>
