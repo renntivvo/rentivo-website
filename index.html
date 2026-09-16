@@ -69,7 +69,7 @@
         }
 
         .logo-icon {
-            width: 45px;
+            width: auto;
             height: 45px;
             display: flex;
             align-items: center;
@@ -77,21 +77,10 @@
         }
 
         .logo-icon img {
-            width: 100%;
             height: 100%;
+            width: auto;
             object-fit: contain;
-        }
-
-        .logo-hero {
-            width: 200px;
-            height: auto;
-            margin: 30px auto 0;
-            display: block;
-        }
-
-        .logo-hero img {
-            width: 100%;
-            height: auto;
+            max-width: 150px;
         }
 
         .nav-links {
@@ -148,8 +137,9 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 168, 107, 0.08) 0%, transparent 50%);
+                linear-gradient(135deg, rgba(15, 76, 135, 0.4) 0%, rgba(0, 217, 255, 0.15) 100%),
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(27, 107, 168, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -160,11 +150,12 @@
             right: 0;
             bottom: 0;
             background-image: 
-                linear-gradient(rgba(30, 39, 64, 0.2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 39, 64, 0.2) 1px, transparent 1px);
-            background-size: 80px 80px;
+                linear-gradient(60deg, rgba(0, 217, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(-60deg, rgba(0, 217, 255, 0.08) 1px, transparent 1px);
+            background-size: 80px 140px;
+            background-position: 0 0, 40px 0;
             pointer-events: none;
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .hero-content {
@@ -932,7 +923,6 @@
                     <div class="logo-icon">
                         <img src="./Mais.png" alt="RENTIVO Logo">
                     </div>
-                    <span>RENTIVO</span>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#beneficios">Benefícios</a></li>
@@ -951,8 +941,6 @@
         <div class="hero-grid"></div>
         <div class="container" style="position: relative; z-index: 2;">
             <div class="hero-content">
-                <img class="logo-hero" src="./Mais.png" alt="RENTIVO Logo">
-                
                 <div class="hero-subtitle">Para Locadoras que Querem Crescer</div>
                 
                 <h1>Mais Utilização.<br>Mais Rentabilidade.</h1>
